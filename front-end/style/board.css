@@ -1,0 +1,50 @@
+#board-box {
+    height: 30vw;
+    width: 30vw;
+    display: inline-block;
+    border: 3px solid var(--blackgrey);
+  }
+
+#board-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+#board-front {
+    background-color: var(--blackblackgrey);
+}
+
+#board-back {
+    background-color: var(--blackblackgrey);
+    transform: rotateX(180deg);
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    gap: 0;
+}
+#map > div {
+    border: 1px solid var(--blackgrey);
+}
+
+.user-cell {
+    background-color: var(--playercell);
+}
+
+.highlight-cell {
+    background-color: var(--whitegrey);
+}
+
+.move-cell {
+    background-color: var(--blackgrey);
+}
+
+.move-cell:hover {
+    background-color: var(--playerselect);
+}
