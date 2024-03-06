@@ -4,7 +4,10 @@
     --playercell: #ae2c2c;
     --playerselect: #c83e3e;
     --whitegrey: #9b9b9b;
+    --floor: #3d2525;
+    --walkable: #6c3e3e;
     --radius: 1vh;
+    --spriteWidth: 310px;
 }
 
 html,body{

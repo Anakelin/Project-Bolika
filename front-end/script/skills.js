@@ -1,6 +1,10 @@
+//cambia da singoli png in sprite orizzontali
+var user = getDiv("user-char");
+var enemy = getDiv("enemy-char");
 var userLocation = "./resources/char/default/";
 var enemyLocation = "./resources/char/rotten/";
 var animationDuration = 1000;
+var spriteWidth = 310;
 
 function resetChar() {
     user.style.backgroundImage = 'url('+userLocation+'base.png)';
@@ -16,18 +20,19 @@ function setEnemyToDefend() {
 }
 
 function default0 (user){
-    user.style.backgroundImage = 'url('+userLocation+'0.png)';
-    setEnemyToDefend();
+    user.style.backgroundImage = 'url('+userLocation+'0.png)';    
     user.animate({
         transform: [
-            'translate3d(0px, 0%, 0%)',
+            'translate3d(0, 0, 0)',
             'translate3d(100%, 0, 0)',
-            'translate3d(150%, 10%, 0)',
+            'translate3d(150%, 5%, 0)',
+            'translate3d(190%, 0%, 0)',
             'translate3d(300%, -5%, 0)',
-            'translate3d(0px, 0%, 0%)'
+            'translate3d(0, 0, 0)'
         ],
         easing: ['ease-in', 'ease-out'],
-      }, animationDuration);
+        }, animationDuration);
+    setEnemyToDefend();
 }
 
 function default1 (user){
@@ -35,38 +40,38 @@ function default1 (user){
     setEnemyToDefend();
     user.animate({
         transform: [
-            'translate3d(0px, 0%, 0%)',
+            'translate3d(0, 0, 0)',
             'translate3d(100%, 0, 0)',
             'translate3d(150%, 10%, 0)',
             'scaleY(-1)',
-            'translate3d(300%, 0%, 0)',
-            'translate3d(300%, 0%, 0)',
-            'translate3d(0px, 0%, 0%)'
+            'translate3d(300%, 0, 0)',
+            'translate3d(300%, 0, 0)',
+            'translate3d(0, 0, 0)'
         ],
         easing: ['ease-in', 'ease-out'],
-      }, animationDuration);
+    }, animationDuration);    
 }
 
 function default2 (user){
     user.style.backgroundImage = 'url('+userLocation+'2.png)';
-    setEnemyToDefend();
-    user.animate({
-        transform: [
-            'translate3d(0px, 0%, 0%)',
-            'translate3d(-50%, 0, 0)',
-            'translate3d(100%, 0, 0)',
-            'translate3d(150%, -10%, 0)',
-            'translate3d(300%, 0%, 0)',
-            'translate3d(0px, 0%, 0%)'],
-        easing: ['ease-in', 'ease-out'],
-      }, animationDuration);
+        setEnemyToDefend();
+        user.animate({
+            transform: [
+                'translate3d(0, 0, 0)',
+                'translate3d(-50%, 0, 0)',
+                'translate3d(100%, 0, 0)',
+                'translate3d(150%, -10%, 0)',
+                'translate3d(300%, 0, 0)',
+                'translate3d(0, 0, 0)'],
+            easing: ['ease-in', 'ease-out'],
+        }, animationDuration);
 }
 
 function default3 (user){
-    user.style.backgroundImage = 'url('+userLocation+'3.png)';    
+    user.style.backgroundImage = 'url('+userLocation+'3.png)'; 
 }
 
-function skill (id, user, enemy){
+function skill (id){
     switch (id) {
         case 0:
             default0(user);

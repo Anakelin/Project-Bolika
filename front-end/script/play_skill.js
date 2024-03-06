@@ -6,21 +6,18 @@ function playSkill(id, user, enemy) {
     skill(id, user, enemy);
 }
 
-var user = document.getElementById("user-char");
-var enemy = document.getElementById("enemy-char");
-
 sk0.addEventListener("click", function() {
-    playSkill(0, user,enemy);
+    playSkill(0);
 });
 
 sk1.addEventListener("click", function() {
-    playSkill(1, user,enemy);
+    playSkill(1);
 });
 
 sk2.addEventListener("click", function() {
-    playSkill(2, user,enemy);
+    playSkill(2);
 });
 
 sk3.addEventListener("click", function() {
-    playSkill(3, user,enemy);
+    playSkill(3);
 });

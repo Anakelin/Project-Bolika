@@ -1,19 +1,16 @@
 var map = document.getElementById("map");
-var size = 30;
+var size = 10;
 var userClass = "user-cell";
 var moveClass = "move-cell";
-var combatViewClass = "combat-view";
-var startPos = [0,0];
-var move = 5;
-var background = getDiv(combatViewClass);
-var backgroundLocation = "./resources/back/swamp";
 
+var startPos = [size/2,size/2];
+var move = 3;
 function createMap() {
-    background.style.backgroundImage = 'url('+backgroundLocation+'_main.png)';
+    setMainBackground();
     var style = "grid-template-columns:";
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
-            addCell(size, i, j);
+            addCell(size, i, j,generatedMap[i][j]);
         }
         style += "auto ";
     }
@@ -26,11 +23,10 @@ function createMap() {
     /*
     getDiv("combat-content").classList.add("flip");
     */
-    resetChar();
+    
 }
 
 function removeClass(className) {
-    console.log(className);
     const elements = document.querySelectorAll(`.${className}`);
     elements.forEach(element => {
         element.classList.remove(userClass);
@@ -55,7 +51,9 @@ function showMove(id) {
         for (let x = pos[0]; x <= xLimit; x++) {
             for (let y = yStart; y <= yLimit; y++) {
                 if(x < size && y < size && x > -1 && y > -1) {
-                    getDiv(x+"-"+y).classList.add(moveClass);        
+                    if(!getDiv(x+"-"+y).classList.contains("wall")) {
+                        getDiv(x+"-"+y).classList.add(moveClass);        
+                    }
                 }
             }
         }   
@@ -69,15 +67,16 @@ function showMove(id) {
             for (let y = yStart; y <= yLimit; y++) {
                 let xValue = x-i;
                 if(xValue < size && y < size && xValue > -1 && y > -1) {
-                    
-                    getDiv(xValue+"-"+y).classList.add(moveClass);            
+                    if(!getDiv(xValue+"-"+y).classList.contains("wall")) {
+                        getDiv(xValue+"-"+y).classList.add(moveClass);            
+                    }
                 }
             }
         }   
     }
 }
 
-function addCell(size, i ,j) {
+function addCell(size, i ,j,type) {
     var default_div = document.createElement("div");
     default_div.classList = "default-cell";
     var border = 2;
@@ -86,7 +85,7 @@ function addCell(size, i ,j) {
     default_div.id = i+"-"+j;
     
     default_div.addEventListener("mouseover", function() {
-        if(!default_div.classList.contains("user-cell")) {
+        if(!default_div.classList.contains("user-cell") && !default_div.classList.contains("wall")) {
             default_div.classList.add("highlight-cell");    
         }
     })
@@ -103,14 +102,23 @@ function addCell(size, i ,j) {
             showMove(default_div.id);
             default_div.classList.remove(moveClass);
             default_div.classList.add(userClass);
-            //change back
-            background.style.backgroundImage = 'url('+backgroundLocation+'_hall.png)';
+            if(default_div.classList.contains("hall")) {
+                setHallBackground();
+            } else {
+                setMainBackground();
+            }
             flip("combat-content");
         }
         
     })
+    
+    if(type === m.Room) {
+        default_div.classList.add("room");
+    } else if(type === m.Wall) {
+        default_div.classList.add("wall");
+    } else if(type === m.Hall) {
+        default_div.classList.add("hall");
+    }
+    
     map.appendChild(default_div);
 }
-
-window.onload = createMap;
-//TODO add walls and room gen. Walls can't be highlighted or moveColored. Also choose a color for it that's not grey

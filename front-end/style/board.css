@@ -33,6 +33,14 @@
     border: 1px solid var(--blackgrey);
 }
 
+.wall {
+    background-color: var(--wall);
+}
+
+.room, .hall {
+    background-color: var(--floor);
+}
+
 .user-cell {
     background-color: var(--playercell);
 }
@@ -42,7 +50,7 @@
 }
 
 .move-cell {
-    background-color: var(--blackgrey);
+    background-color: var(--walkable);
 }
 
 .move-cell:hover {
