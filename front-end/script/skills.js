@@ -98,5 +98,4 @@ function skill (id){
     setTimeout(function(){
         resetChar();    
       },animationDuration)
-    
 }

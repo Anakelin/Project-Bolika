@@ -37,7 +37,7 @@
     background-color: var(--wall);
 }
 
-.room, .hall {
+.room, .hall, .spawn {
     background-color: var(--floor);
 }
 

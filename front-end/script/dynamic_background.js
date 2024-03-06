@@ -9,3 +9,7 @@ function setMainBackground() {
 function setHallBackground() {
     background.style.backgroundImage = 'url('+backgroundLocation+'_hall.png)';    
 }
+
+function setSpawnBackground() {
+    background.style.backgroundImage = 'url('+backgroundLocation+'_spawn.png)';    
+}

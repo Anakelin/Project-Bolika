@@ -3,7 +3,7 @@ var size = 10;
 var userClass = "user-cell";
 var moveClass = "move-cell";
 
-var startPos = [size/2,size/2];
+var startPos = [0,0];
 var move = 3;
 function createMap() {
     setMainBackground();
@@ -104,10 +104,13 @@ function addCell(size, i ,j,type) {
             default_div.classList.add(userClass);
             if(default_div.classList.contains("hall")) {
                 setHallBackground();
+            } else if (default_div.classList.contains("spawn")) {
+                setSpawnBackground();
             } else {
                 setMainBackground();
+                startBattleFlip();
             }
-            flip("combat-content");
+            
         }
         
     })
@@ -118,7 +121,13 @@ function addCell(size, i ,j,type) {
         default_div.classList.add("wall");
     } else if(type === m.Hall) {
         default_div.classList.add("hall");
+    } else {
+        startPos = [i,j];
+        default_div.classList.add("spawn");
     }
+
     
     map.appendChild(default_div);
 }
+
+//MOVE MUST BE BLOCKED BY WALLS

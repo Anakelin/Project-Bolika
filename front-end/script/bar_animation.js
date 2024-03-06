@@ -3,20 +3,27 @@ var userEn = getDiv("user-en-bar");
 var enemyHp = getDiv("enemy-hp-bar");
 var enemyEn = getDiv("enemy-en-bar");
 
-var maxUserHp = 100;
-var maxUserEn = 50;
-var maxEnemyHp = 100;
-var maxEnemyEn = 50;
+const maxUserHp = 100;
+const maxUserEn = 50;
+const maxEnemyHp = 100;
+const maxEnemyEn = 50;
 
 var currentUserHp = maxUserHp;
 var currentUserEn = maxUserEn;
 var currentEnemyHp = maxEnemyHp;
 var currentEnemyEn = maxUserEn;
 
-var maxUserWidthHp = userHp.offsetWidth;
-var maxUserWidthEn = userEn.offsetWidth;
-var maxEnemyWidthHp = enemyHp.offsetWidth;
-var maxEnemyWidthEn = enemyEn.offsetWidth;
+const maxUserWidthHp = userHp.offsetWidth;
+const maxUserWidthEn = userEn.offsetWidth;
+const maxEnemyWidthHp = enemyHp.offsetWidth;
+const maxEnemyWidthEn = enemyEn.offsetWidth;
+
+function resetEnemy() {
+    currentEnemyHp = maxEnemyHp;
+    currentEnemyEn = maxEnemyEn;
+    changeEnemyEn(0);
+    changeEnemyHp(0);
+}
 
 function changeUserHp(value) {
     currentUserHp += value;
@@ -57,6 +64,10 @@ function changeEnemyHp(value) {
         enemyHp.style.width = maxEnemyWidthHp +"px";
     } else {
         enemyHp.style.width = currentWidth +"px";
+    }
+    if(currentEnemyHp <= 0) {
+        endBattleFlip();
+        resetEnemy();
     }
     
 }

@@ -37,4 +37,3 @@ function preload() {
 }
 
 window.onload = startGame;
-//TODO add walls and room gen. Walls can't be highlighted or moveColored. Also choose a color for it that's not grey
