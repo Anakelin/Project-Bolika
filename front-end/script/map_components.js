@@ -5,6 +5,8 @@ const m = {
     Spawn : "Spawn"
 };
 
+//add encounter and heal
+
 var generatedMap1 = [
     [m.Wall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall],
     [m.Wall,m.Room,m.Room,m.Room,m.Room,m.Room,m.Room,m.Room,m.Room,m.Wall],
@@ -24,11 +26,11 @@ var generatedMap = [
     [m.Hall,m.Wall,m.Wall,m.Room,m.Room,m.Room,m.Room,m.Room,m.Room,m.Wall],
     [m.Hall,m.Wall,m.Wall,m.Room,m.Room,m.Room,m.Room,m.Room,m.Room,m.Wall],
     [m.Hall,m.Hall,m.Hall,m.Room,m.Room,m.Room,m.Room,m.Room,m.Room,m.Wall],
-    [m.Wall,m.Wall,m.Wall,m.Room,m.Room,m.Room,m.Room,m.Room,m.Room,m.Wall],
-    [m.Wall,m.Wall,m.Wall,m.Room,m.Room,m.Room,m.Room,m.Room,m.Room,m.Wall],
-    [m.Wall,m.Wall,m.Wall,m.Room,m.Room,m.Room,m.Room,m.Room,m.Room,m.Wall],
-    [m.Wall,m.Wall,m.Wall,m.Room,m.Room,m.Room,m.Room,m.Room,m.Room,m.Wall],
-    [m.Wall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall],
+    [m.Hall,m.Wall,m.Wall,m.Room,m.Room,m.Room,m.Room,m.Room,m.Room,m.Wall],
+    [m.Hall,m.Wall,m.Wall,m.Room,m.Room,m.Room,m.Room,m.Room,m.Room,m.Wall],
+    [m.Hall,m.Wall,m.Wall,m.Room,m.Room,m.Room,m.Room,m.Room,m.Room,m.Wall],
+    [m.Hall,m.Wall,m.Wall,m.Room,m.Room,m.Room,m.Room,m.Room,m.Room,m.Wall],
+    [m.Hall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall],
 ];
 
 function isWall(id) {

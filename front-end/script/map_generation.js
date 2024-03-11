@@ -41,38 +41,90 @@ function showMove(id) {
     elements.forEach(element => {
         element.classList.remove(moveClass);
     });
-
-    // down
     
+    let east = pos[1] + move;
+    let ovest = pos[1] -move;
+
+    // up-left
     for (let i = 0; i < move+1; i++) {
-        let xLimit = pos[0]+i;
-        let yLimit = endCell[1]-i;
-        let yStart = pos[1]+i-move;
-        for (let x = pos[0]; x <= xLimit; x++) {
+        let xLimit = pos[0] - i;
+        let yLimit = east - i;
+        let yStart = pos[1];
+
+        for (let x = pos[0]; x >= xLimit; x--) {
+            let isStopped = false;
             for (let y = yStart; y <= yLimit; y++) {
                 if(x < size && y < size && x > -1 && y > -1) {
-                    if(!getDiv(x+"-"+y).classList.contains("wall")) {
+                    if(!getDiv(x+"-"+y).classList.contains("wall") && !isStopped) {
                         getDiv(x+"-"+y).classList.add(moveClass);        
                     }
-                }
-            }
-        }   
-    }
-    //up 
-    for (let i = 0; i < move+1; i++) {
-        let xLimit = pos[0]+i;
-        let yLimit = endCell[1]-i;
-        let yStart = pos[1]+i-move;
-        for (let x = pos[0]; x <= xLimit; x++) {
-            for (let y = yStart; y <= yLimit; y++) {
-                let xValue = x-i;
-                if(xValue < size && y < size && xValue > -1 && y > -1) {
-                    if(!getDiv(xValue+"-"+y).classList.contains("wall")) {
-                        getDiv(xValue+"-"+y).classList.add(moveClass);            
+                    else{
+                        isStopped = true;
                     }
                 }
             }
-        }   
+        }
+    }
+    // up-right
+    for (let i = 0; i < move+1; i++) {
+        let xLimit = pos[0] - i;
+        let yLimit = ovest + i;
+        let yStart = pos[1];
+
+        for (let x = pos[0]; x >= xLimit; x--) {
+            let isStopped = false;
+            for (let y = yStart; y >= yLimit; y--) {
+                if(x < size && y < size && x > -1 && y > -1) {
+                    if(!getDiv(x+"-"+y).classList.contains("wall") && !isStopped) {
+                        getDiv(x+"-"+y).classList.add(moveClass);        
+                    }
+                    else{
+                        isStopped = true;
+                    }
+                }
+            }
+        }
+    }
+
+    // down-left
+    for (let i = 0; i < move+1; i++) {
+        let xLimit = pos[0] + i;
+        let yLimit = east - i;
+        let yStart = pos[1];
+
+        for (let x = pos[0]; x <= xLimit; x++) {
+            let isStopped = false;
+            for (let y = yStart; y <= yLimit; y++) {
+                if(x < size && y < size && x > -1 && y > -1) {
+                    if(!getDiv(x+"-"+y).classList.contains("wall") && !isStopped) {
+                        getDiv(x+"-"+y).classList.add(moveClass);        
+                    }
+                    else{
+                        isStopped = true;
+                    }
+                }
+            }
+        }
+    }
+    // down-right
+    for (let i = 0; i < move+1; i++) {
+        let xLimit = pos[0] + i;
+        let yLimit = ovest + i;
+        let yStart = pos[1];
+
+        for (let x = pos[0]; x <= xLimit; x++) {
+            let isStopped = false;
+            for (let y = yStart; y >= yLimit; y--) {
+                if(x < size && y < size && x > -1 && y > -1) {
+                    if(!getDiv(x+"-"+y).classList.contains("wall") && !isStopped) {
+                        getDiv(x+"-"+y).classList.add(moveClass);        
+                    }
+                    else{
+                        isStopped = true;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -108,7 +160,7 @@ function addCell(size, i ,j,type) {
                 setSpawnBackground();
             } else {
                 setMainBackground();
-                startBattleFlip();
+                //startBattleFlip();
             }
             
         }
@@ -125,9 +177,6 @@ function addCell(size, i ,j,type) {
         startPos = [i,j];
         default_div.classList.add("spawn");
     }
-
     
     map.appendChild(default_div);
 }
-
-//MOVE MUST BE BLOCKED BY WALLS
