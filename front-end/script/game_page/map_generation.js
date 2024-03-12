@@ -33,6 +33,41 @@ function removeClass(className) {
     });
 }
 
+function checkTyles (id) {
+    var pos = id.split("-").map(Number);
+    var adiacentCells = [];
+    var index = 0;
+    var nord = pos[0] - 1;
+    if(nord < size && nord > -1) {
+        adiacentCells[index] = nord+"-"+pos[1];
+        index++;
+    }
+
+    var sud = pos[0] + 1;
+    if(sud < size && sud > -1) {
+        adiacentCells[index] = sud + "-" + pos[1];
+        index++;
+    }
+
+    var east = pos[1] + 1;
+    if(east < size && east > -1) {
+        adiacentCells[index] = pos[0] + "-" + east;
+        index++;
+    }
+
+    var ovest = pos[1] - 1;
+    if(ovest < size && ovest > -1) {
+        adiacentCells[index] = pos[0] + "-" + ovest;
+        index++;
+    }
+    var isNotWall = false;
+    adiacentCells.forEach(element => {
+        console.log(element);
+         isWall = getDiv(element).contains("wall") ? isWall : !isWall;
+    });
+    return isWall;
+}
+
 function showMove(id) {
     var pos = id.split("-").map(Number);
     var endCell = [pos[0]+move,pos[1]+move];
@@ -96,8 +131,11 @@ function showMove(id) {
             let isStopped = false;
             for (let y = yStart; y <= yLimit; y++) {
                 if(x < size && y < size && x > -1 && y > -1) {
-                    if(!getDiv(x+"-"+y).classList.contains("wall") && !isStopped) {
-                        getDiv(x+"-"+y).classList.add(moveClass);        
+                    if(!getDiv(x + "-" + y).classList.contains("wall")) {
+                        var isValidTyle = checkTyles(x + "-" + y);
+                        if(!isStopped && isValidTyle) {
+                            getDiv(x+"-"+y).classList.add(moveClass);        
+                        }
                     }
                     else{
                         isStopped = true;
