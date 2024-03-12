@@ -39,6 +39,19 @@ input:hover {
     border-bottom: 2px solid var(--blackgrey);
 }
 
+#title-label {
+    position: absolute;
+    margin-top: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    font-size: var(--font-height);
+    font-weight: bolder;
+}
 #username-label, #password-label {
     position: relative;
     top: -30%;
@@ -64,14 +77,15 @@ input:hover {
 #confirm {
     position: absolute;
     bottom: 20%;
-    right: 10%;
+    right: 15%;
     width: auto;
-    height: var(--font-height);
+    height: var(--font-height/2);
     background-color: var(--blackgrey);
     transition: 100ms ease-in-out;
     color: transparent;
-    padding: 1vh;
-    font-size: var(--font-height);
+    padding: 2vh;
+    text-align: center;
+    font-size: var(--font-height/2);
 }
 
 #confirm:hover{
