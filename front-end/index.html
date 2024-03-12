@@ -4,82 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    .cell {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      border: 1px solid #000;
-      text-align: center;
+    html,body {
+    margin: 5vh;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    
     }
-    .red {
-      background-color: red;
+    div {
+      border: 1px solid #000;
+    }
+    #main-box {
+      height: 80%;
+      width: 90%;
     }
   </style>
 </head>
 <body>
-
-<!-- Creating a 9x9 grid of div elements -->
-<div id="gridContainer"></div>
-
-<script>
-// Function to generate a 9x9 grid of div elements
-function generateGrid() {
-    const gridContainer = document.getElementById('gridContainer');
-
-    for (let i = 0; i < 9; i++) {
-        for (let j = 0; j < 9; j++) {
-            const cell = document.createElement('div');
-            cell.className = 'cell';
-            gridContainer.appendChild(cell);
-        }
-        gridContainer.appendChild(document.createElement('br'));
-    }
-}
-
-// Example usage:
-generateGrid();
-
-function moveInDiamond(startX, startY, maxSteps) {
-    const numRows = 9;
-    const numCols = 9;
-    const resultGrid = Array.from({ length: numRows }, () => Array(numCols).fill(' '));
-
-    const isValidMove = (x, y) => x >= 0 && x < numRows && y >= 0 && y < numCols;
-
-    const move = (x, y, steps) => {
-        if (steps === 0 || !isValidMove(x, y) || resultGrid[x][y] === 'X') {
-            return;
-        }
-
-        resultGrid[x][y] = 'O';
-
-        move(x - 1, y, steps - 1);
-        move(x + 1, y, steps - 1);
-        move(x, y - 1, steps - 1);
-        move(x, y + 1, steps - 1);
-    };
-
-    move(startX, startY, maxSteps);
-
-    // Update the existing div elements based on the result grid
-    for (let i = 0; i < numRows; i++) {
-        for (let j = 0; j < numCols; j++) {
-            const index = i * numCols + j;
-            const cell = document.querySelector(`.cell[index="${index}"]`);
-            cell.className = resultGrid[i][j] === 'O' ? 'cell red' : 'cell';
-            cell.textContent = resultGrid[i][j];
-        }
-    }
-}
-
-// Example usage:
-const startX = 4;
-const startY = 4;
-const maxSteps = 2;
-
-moveInDiamond(startX, startY, maxSteps);
-</script>
-
+  <div id="main-box"></div>
 </body>
 </html>
 
