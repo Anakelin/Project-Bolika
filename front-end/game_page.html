@@ -7,12 +7,17 @@
     <link rel="stylesheet" href="./style/game_page/combat.css">
     <link rel="stylesheet" href="./style/game_page/char.css">
     <link rel="stylesheet" href="./style/game_page/board.css">
+    <link rel="stylesheet" href="./style/loader.css">
     <link rel="icon" href="./resources/game_page/pageres/page_icon.png">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <title>Project Bolika</title>
 </head>
 <body>
-    <div id="flip-btn"></div>
+    <div id="loader-back">
+        <div id="loader"></div>
+    </div>
+    <div id="content">
+        <div id="flip-btn"></div>
     <div id="unflip-btn"></div>
     <div id="board-box">
         <div id="board-content">
@@ -71,7 +76,9 @@
             </div> 
         </div>
     </div>
+    </div>
 </body>
+<script src="./script/loader.js"></script>
 <script>
     function getDiv(id) {
     return document.getElementById(id);

@@ -5,19 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link rel="stylesheet" href="./style/login_page/login.css">
+    <link rel="stylesheet" href="./style/loader.css">
     <link rel="icon" href="./resources/game_page/pageres/page_icon.png">
 </head>
 <body>
-    
-    <div id="main-box">
-        <label id="title-label">Login</label>
-        <div id="confirm" onclick="checkUser()">Confirm</div>
-        <input id="username" type="text" autocomplete="off">
-        <label id="username-label" for="username" class="title">Username</label>
-        <input id="password" type="password">
-        <label id="password-label" for="password" class="title">Password</label>
+    <div id="loader-back">
+        <div id="loader"></div>
     </div>
+    <div id="content">
+        <div id="main-box">
+            <label id="title-label">Login</label>
+            <div id="confirm" onclick="checkUser()">Confirm</div>
+            <input id="username" type="text" autocomplete="off">
+            <label id="username-label" for="username" class="title">Username</label>
+            <input id="password" type="password">
+            <label id="password-label" for="password" class="title">Password</label>
+        </div>
+    </div>
+    <script src="./script/loader.js"></script>
     <script>
+        window.onload = function () {
+            document.getElementById('content').style.display="none";
+        }
         function setPage() {
             window.location.href = "./game_page.html";
         }

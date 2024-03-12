@@ -54,12 +54,12 @@ input:hover {
 }
 #username-label, #password-label {
     position: relative;
-    top: -30%;
+    top: -22vh;
     transition: 400ms ease-in-out;
 }
 
 #username:focus + #username-label, #password:focus + #password-label{
-    top: -40%;
+    top: -40vh;
     color: var(--playerselect);
 }
 
@@ -86,6 +86,8 @@ input:hover {
     padding: 2vh;
     text-align: center;
     font-size: var(--font-height/2);
+    font-weight: bold;
+    cursor:pointer;
 }
 
 #confirm:hover{
