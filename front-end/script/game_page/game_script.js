@@ -1,5 +1,5 @@
-var userLocation = "./resources/char/default/";
-var enemyLocation = "./resources/char/rotten/";
+var userLocation = "./resources/game_page/char/default/";
+var enemyLocation = "./resources/game_page/char/rotten/";
 
 function startGame() {
     createMap();

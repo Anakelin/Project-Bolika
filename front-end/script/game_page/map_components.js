@@ -30,7 +30,7 @@ var generatedMap = [
     [m.Hall,m.Wall,m.Wall,m.Room,m.Room,m.Room,m.Room,m.Room,m.Room,m.Wall],
     [m.Hall,m.Wall,m.Wall,m.Room,m.Room,m.Room,m.Room,m.Room,m.Room,m.Wall],
     [m.Hall,m.Wall,m.Wall,m.Room,m.Room,m.Room,m.Room,m.Room,m.Room,m.Wall],
-    [m.Hall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall],
+    [m.Hall,m.Hall,m.Hall,m.Hall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall],
 ];
 
 function isWall(id) {

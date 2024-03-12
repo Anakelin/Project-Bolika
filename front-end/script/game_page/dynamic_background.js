@@ -1,6 +1,6 @@
 var combatViewClass = "combat-view";
 var background = getDiv(combatViewClass);
-var backgroundLocation = "./resources/back/swamp";
+var backgroundLocation = "./resources/game_page/back/swamp";
 
 function setMainBackground() {
     background.style.backgroundImage = 'url('+backgroundLocation+'_main.png)';    

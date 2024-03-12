@@ -4,70 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <style>
-
-        :root {
-            --font-height:5vh;
-            --blackblackgrey: #0c0c0c;
-            --blackgrey: #1c1c1c;
-        }
-        html,body {
-            margin: 5vh;
-            overflow: hidden;
-            height: 100%;
-            width: 100%;
-            background-color: var(--blackblackgrey);
-            color: white;
-        }
-        
-        #main-box {
-            height: 80%;
-            width: 90%;
-        }
-        input[type=text],input[type=password] {
-            width: 30%;
-            transition: width 0.4s ease-in-out;
-            display: block;
-            margin: auto;
-            margin-top: 10%;
-            border: none;
-            border-bottom: 1px solid white;
-            outline: none;
-            text-align: center;
-            font-size: var(--font-height);
-            background-color: var(--blackblackgrey);
-            color: white;
-            
-        }
-
-        /* When the input field gets focus, change its width to 100% */
-        input[type=text]:focus, input[type=password]:focus {
-            width: 60%;
-        }
-        .title {
-            margin-top: 5%;
-            text-align: center;
-            display: block;
-            font-weight: bolder;
-            font-size: var(--font-height);
-        }
-        #confirm {
-            position: absolute;
-            right: 20%;
-            width: var(--font-height);
-            height: var(--font-height);
-            background-color: var(--blackgrey);
-        }
-    </style>
+    <link rel="stylesheet" href="./style/login_page/login.css">
+    <link rel="icon" href="./resources/game_page/pageres/page_icon.png">
 </head>
 <body>
     <div id="main-box">
-        <label for="username" class="title">Username</label>
+        <div id="confirm" onclick="checkUser()">Confirm</div>
         <input id="username" type="text" autocomplete="off">
-        <label for="password" class="title">Password</label>
+        <label id="username-label" for="username" class="title">Username</label>
         <input id="password" type="password">
-        <div id="confirm"></div>
-        <div></div>
+        <label id="password-label" for="password" class="title">Password</label>
     </div>
+    <script>
+        function setPage() {
+            window.location.href = "./game_page.html";
+        }
+        function checkUser() {
+            setPage();
+        }
+    </script>
 </body>
 </html>

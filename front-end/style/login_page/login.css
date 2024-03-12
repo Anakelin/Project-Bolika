@@ -1,0 +1,89 @@
+:root {
+    --font-height:5vh;
+    --blackblackgrey: #0c0c0c;
+    --blackgrey: #1c1c1c;
+    --playerselect: #c83e3e;
+}
+html,body {
+    margin: 5vh;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background-color: var(--blackblackgrey);
+    color: var(--blackgrey);
+}
+
+#main-box {
+    height: 80%;
+    width: 90%;
+}
+input {
+    width: 30%;
+    transition: 350ms ease-in-out;
+    display: block;
+    margin: auto;
+    margin-top: 10%;
+    border: none;
+    border-bottom: 1px solid var(--blackgrey);
+    outline: none;
+    text-align: center;
+    font-size: var(--font-height);
+    background-color: var(--blackblackgrey);
+    color: white;
+    
+}
+
+/* When the input field gets focus, change its width to 100% */
+input:hover {
+    width: 40%;
+    border-bottom: 2px solid var(--blackgrey);
+}
+
+#username-label, #password-label {
+    position: relative;
+    top: -30%;
+    transition: 400ms ease-in-out;
+}
+
+#username:focus + #username-label, #password:focus + #password-label{
+    top: -40%;
+    color: var(--playerselect);
+}
+
+#username:focus, #password:focus {
+    width: 60%;
+    border-bottom: 2px solid var(--playerselect);
+}
+.title {
+    margin-top: 5%;
+    text-align: center;
+    display: block;
+    font-weight: bold;
+    font-size: var(--font-height);
+}
+#confirm {
+    position: absolute;
+    bottom: 20%;
+    right: 10%;
+    width: auto;
+    height: var(--font-height);
+    background-color: var(--blackgrey);
+    transition: 100ms ease-in-out;
+    color: transparent;
+    padding: 1vh;
+    font-size: var(--font-height);
+}
+
+#confirm:hover{
+    background-color: var(--playerselect);
+    color: white;
+}
+
+#confirm:hover ~ #username-label, #confirm:hover ~ #password-label{
+    top: -40%;
+    color: var(--playerselect);
+}
+#confirm:hover ~ #username, #confirm:hover ~ #password {
+    width: 60%;
+    border-bottom: 2px solid var(--playerselect);
+}

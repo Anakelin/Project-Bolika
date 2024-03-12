@@ -16,7 +16,7 @@
 }
 
 #combat-front {
-    background-image: url("../resources/pageres/infernal_torch.png");
+    background-image: url("../../resources/game_page/pageres/infernal_torch.png");
     background-size:contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -87,19 +87,19 @@
 }
 
 #sk0 {
-    background-image: url("../resources/char/default/skills/icon_smite.png");
+    background-image: url("../../resources/game_page/char/default/skills/icon_smite.png");
 }
 
 #sk1 {
-    background-image: url("../resources/char/default/skills/icon_rally_cry.png");
+    background-image: url("../../resources/game_page/char/default/skills/icon_rally_cry.png");
 }
 
 #sk2 {
-    background-image: url("../resources/char/default/skills/icon_holy_lance.png");
+    background-image: url("../../resources/game_page/char/default/skills/icon_holy_lance.png");
 }
 
 #sk3 {
-    background-image: url("../resources/char/default/skills/icon_heal_words.png");
+    background-image: url("../../resources/game_page/char/default/skills/icon_heal_words.png");
 }
 
 #skill-desc {
