@@ -1,9 +1,3 @@
-:root {
-    --font-height:5vh;
-    --blackblackgrey: #0c0c0c;
-    --blackgrey: #1c1c1c;
-    --playerselect: #c83e3e;
-}
 html,body {
     margin: 5vh;
     overflow: hidden;
@@ -16,13 +10,13 @@ html,body {
 #main-box {
     height: 80%;
     width: 90%;
+    margin-top: 15vh;
 }
 input {
     width: 30%;
     transition: 350ms ease-in-out;
     display: block;
     margin: auto;
-    margin-top: 10%;
     border: none;
     border-bottom: 1px solid var(--blackgrey);
     outline: none;
@@ -59,7 +53,7 @@ input:hover {
 }
 
 #username:focus + #username-label, #password:focus + #password-label{
-    top: -40vh;
+    top: -30vh;
     color: var(--playerselect);
 }
 
@@ -96,10 +90,10 @@ input:hover {
 }
 
 #confirm:hover ~ #username-label, #confirm:hover ~ #password-label{
-    top: -40%;
+    top: -60%;
     color: var(--playerselect);
 }
 #confirm:hover ~ #username, #confirm:hover ~ #password {
-    width: 60%;
+    width: 45%;
     border-bottom: 2px solid var(--playerselect);
 }

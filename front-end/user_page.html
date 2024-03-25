@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+    <link rel="stylesheet" href="./style/loader.css">
+    <link rel="icon" href="./resources/game_page/pageres/page_icon.png">
+    <style>
+    html,body, #content {
+        margin: 5vh;
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        background-color: var(--blackblackgrey);
+        color: var(--blackgrey);
+        color: white;
+        
+        font-weight: bold;
+    }
+
+    #user-info{
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        height: 90%;
+        width: 40%;
+        display: inline-block;
+        border: 3px solid var(--blackgrey);
+        font-size: var(--font-height);
+    }
+
+    #user-info > div {
+        height: auto;
+        width: auto;
+        margin-top: 13%;
+        margin-left: 5%;
+    }
+
+    #report-info > div{
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    #btn-send-report, #btn-see-report{
+        text-align: center;
+        background-color: var(--playercell);
+    }
+    #btn-see-report {
+        float: right;
+    }
+
+    #char-info{
+        position: absolute;
+        top: 5%;
+        right: 5%;
+        width: 40%;
+        height: 90%;
+        display: inline-block;
+        border: 3px solid var(--blackgrey);
+        font-size: var(--font-height/2);
+    }
+
+    .skill {
+        height: 40%;
+        width: 100%;
+        display: block;
+        margin-top: 2vh;
+        
+    }
+    .skill > div{
+        display: inline-block;
+        vertical-align: middle;
+    }
+    #char-img {
+        width: 116px;
+        height: 206px;
+        background-image: url("resources/game_page/char/default/base.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-right: 3px solid var(--blackgrey);
+    }
+    #char-buttons {
+        width: auto;
+        height: auto;
+        border-top:  3px solid var(--blackgrey);
+    }
+    #char-buttons > div {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    #btn-back-char, #btn-back-loc{
+        width: 0;
+        height: 0;
+        border-top: 2vh solid transparent;
+        border-right: 4vh solid var(--playercell);
+        border-bottom: 2vh solid transparent;
+    }
+
+    #btn-buy-char, #btn-loc, #btn-game{
+        height: 4vh;
+        width: 8vh;
+        text-align: center;
+        background-color: var(--playercell);
+    }
+
+    #btn-forw-char, #btn-forw-loc {
+        width: 0;
+        height: 0;
+        border-top: 2vh solid transparent;
+        border-left: 4vh solid var(--playercell);
+        border-bottom: 2vh solid transparent;
+    }
+
+    #btn-back-loc{
+        padding-left: 20%;
+    }
+    #btn-game {
+        float: right;   
+    }
+    #char-skills {
+        width: auto;
+        height: auto;
+        border-top:  3px solid var(--blackgrey);    
+        padding-top: 3vh;
+    }
+    .icon {
+        display: inline-block;
+        height: 10vh;
+        aspect-ratio: 1;
+        background-position: center;
+        background-size: cover;
+        margin-left: 2vw;
+    }
+    #char-skill0-icon {
+        background-image: url("resources/game_page/char/default/skills/icon_smite.png");
+    }
+    #char-skill1-icon {
+        background-image: url("resources/game_page/char/default/skills/icon_rally_cry.png");
+    }
+    #char-skill2-icon {
+        background-image: url("resources/game_page/char/default/skills/icon_holy_lance.png");
+    }
+    #char-skill3-icon {
+        background-image: url("resources/game_page/char/default/skills/icon_heal_words.png");
+    }
+</style>
+</head>
+<body>
+    <div id="loader-back">
+        <div id="loader"></div>
+    </div>
+    <div id="content">
+        <div id="user-info">
+            <div id="username">Username :</div>
+            <div id="email">Email :</div>
+            <div id="currency">Currency :</div>
+            <div id="char-num">Characters Unlocked : /Max</div>
+            <div id="report-info">
+                <div id="btn-send-report">Send Report</div>
+                <div id="btn-see-report">See Report</div>
+            </div>
+        </div>
+        <div id="char-info">
+            <div id="char-img"></div>
+            <div id="char-desc"></div>
+            <div id="char-buttons">
+                <div id="btn-back-char"></div>
+                <div id="btn-buy-char">BUY</div>
+                <div id="btn-forw-char"></div>
+                <div id="btn-back-loc"></div>
+                <div id="btn-loc">RUIN</div>
+                <div id="btn-forw-loc"></div>
+                <div id="btn-game">START</div>
+            </div>
+            <div id="char-skills">
+                <div id="char-skill0" class="skill">
+                    <div id="char-skill0-icon" class="icon"></div>
+                    <div id="char-skill0-values" class="values">20 Hp 10 En</div>
+                    <div id="char-skill0-desc" class="desc">desc</div>
+                </div>
+                <div id="char-skill1" class="skill">
+                    <div id="char-skill1-icon" class="icon"></div>
+                    <div id="char-skill1-values" class="values">20 Hp 10 En</div>
+                    <div id="char-skill1-desc" class="desc">desc</div>
+                </div>
+                <div id="char-skill2" class="skill">
+                    <div id="char-skill2-icon" class="icon"></div>
+                    <div id="char-skill2-values" class="values">20 Hp 10 En</div>
+                    <div id="char-skill2-desc" class="desc">desc</div>
+                </div>
+                <div id="char-skill3" class="skill">
+                    <div id="char-skill3-icon" class="icon"></div>
+                    <div id="char-skill3-values" class="values">20 Hp 10 En</div>
+                    <div id="char-skill3-desc" class="desc">desc</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script/loader.js"></script>
+</body>
+</html>

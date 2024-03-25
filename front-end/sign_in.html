@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sing In</title>
+    <link rel="stylesheet" href="./style/loader.css">
+    <link rel="icon" href="./resources/game_page/pageres/page_icon.png">
+    <style>
+        html,body {
+    margin: 5vh;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background-color: var(--blackblackgrey);
+    color: var(--blackgrey);
+}
+
+#main-box {
+    height: 80%;
+    width: 90%;
+    margin-top: 15vh;
+}
+input {
+    width: 30%;
+    transition: 350ms ease-in-out;
+    display: block;
+    margin: auto;
+    margin-top:0;
+    border: none;
+    border-bottom: 1px solid var(--blackgrey);
+    outline: none;
+    text-align: center;
+    font-size: var(--font-height);
+    background-color: var(--blackblackgrey);
+    color: white;
+    
+}
+
+/* When the input field gets focus, change its width to 100% */
+input:hover {
+    width: 40%;
+    border-bottom: 2px solid var(--blackgrey);
+}
+
+#title-label {
+    position: absolute;
+    margin-top: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    font-size: var(--font-height);
+    font-weight: bolder;
+}
+#username-label, #password-label, #email-label {
+    position: relative;
+    top: -22vh;
+    transition: 400ms ease-in-out;
+}
+
+#username:focus + #username-label, #password:focus + #password-label, #email:focus + #email-label{
+    top: -30vh;
+    color: var(--playerselect);
+}
+
+#username:focus, #password:focus, #email:focus {
+    width: 60%;
+    border-bottom: 2px solid var(--playerselect);
+}
+.title {
+    margin-top: 5%;
+    text-align: center;
+    display: block;
+    font-weight: bold;
+    font-size: var(--font-height);
+}
+#confirm {
+    position: absolute;
+    bottom: 20%;
+    right: 15%;
+    width: auto;
+    height: var(--font-height/2);
+    background-color: var(--blackgrey);
+    transition: 100ms ease-in-out;
+    color: transparent;
+    padding: 2vh;
+    text-align: center;
+    font-size: var(--font-height/2);
+    font-weight: bold;
+    cursor:pointer;
+}
+
+#confirm:hover{
+    background-color: var(--playerselect);
+    color: white;
+}
+
+#confirm:hover ~ #username-label,
+#confirm:hover ~ #password-label,
+#confirm:hover ~ #email-label {
+    top: -40%;
+    color: var(--playerselect);
+}
+#confirm:hover ~ #username,
+#confirm:hover ~ #password,
+#confirm:hover ~ #email {
+    width: 45%;
+    border-bottom: 2px solid var(--playerselect);
+}
+    </style>
+</head>
+<body>
+    <div id="loader-back">
+        <div id="loader"></div>
+    </div>
+    <div id="content">
+        <div id="main-box">
+            <label id="title-label">Sign In</label>
+            <div id="confirm" onclick="checkUser()">Confirm</div>
+            <input id="username" type="text" autocomplete="off">
+            <label id="username-label" for="username" class="title">Username</label>
+            <input id="email" type="email">
+            <label id="email-label" for="email" class="title">E-mail</label>
+            <input id="password" type="password">
+            <label id="password-label" for="password" class="title">Password</label>
+        </div>
+    </div>
+    <script src="./script/loader.js"></script>
+    <script>
+        window.onload = function () {
+            document.getElementById('content').style.display="none";
+        }
+        function setPage() {
+            window.location.href = "./game_page.html";
+        }
+        function checkUser() {
+            setPage();
+        }
+    </script>
+</body>
+</html>

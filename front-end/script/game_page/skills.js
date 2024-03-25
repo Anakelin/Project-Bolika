@@ -4,7 +4,6 @@ var enemy = getDiv("enemy-char");
 var userLocation = "./resources/char/default/";
 var enemyLocation = "./resources/char/rotten/";
 var animationDuration = 1000;
-var spriteWidth = 310;
 
 function resetChar() {
     user.style.backgroundImage = 'url('+userLocation+'base.png)';

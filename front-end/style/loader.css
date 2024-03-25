@@ -1,3 +1,15 @@
+:root {
+    --blackblackgrey: #0c0c0c;
+    --blackgrey: #1c1c1c;
+    --playercell: #ae2c2c;
+    --playerselect: #c83e3e;
+    --whitegrey: #9b9b9b;
+    --floor: #3d2525;
+    --walkable: #6c3e3e;
+    --radius: 1vh;
+    --font-height:5vh;
+}
+
 #loader {
     position: absolute;
     left: 50%;
