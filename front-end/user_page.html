@@ -174,7 +174,7 @@
                 <div id="btn-back-loc" class="btn"></div>
                 <div id="btn-loc" class="btn">RUIN</div>
                 <div id="btn-forw-loc" class="btn"></div>
-                <div id="btn-game" class="btn">START</div>
+                <div id="btn-game" class="btn" onclick="startGame()">START</div>
             </div>
             <div id="char-skills">
                 <div id="char-skill0" class="skill">
@@ -208,6 +208,15 @@
 
         function goReportSee() {
             window.location.href = "./report_center_see.html";
+        }
+
+        function goGame() {
+            window.location.href = "./game_page.html";
+        }
+
+        function startGame() {
+            //do stuff
+            goGame();
         }
     </script>
 </body>
