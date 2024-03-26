@@ -160,21 +160,21 @@
             <div id="currency">Currency :</div>
             <div id="char-num">Characters Unlocked : /Max</div>
             <div id="report-info">
-                <div id="btn-send-report">Send Report</div>
-                <div id="btn-see-report">See Report</div>
+                <div id="btn-send-report" class="btn" onclick="goReportSend()">Send Report</div>
+                <div id="btn-see-report" class="btn" onclick="goReportSee()">See Report</div>
             </div>
         </div>
         <div id="char-info">
             <div id="char-img"></div>
             <div id="char-desc"></div>
             <div id="char-buttons">
-                <div id="btn-back-char"></div>
-                <div id="btn-buy-char">BUY</div>
-                <div id="btn-forw-char"></div>
-                <div id="btn-back-loc"></div>
-                <div id="btn-loc">RUIN</div>
-                <div id="btn-forw-loc"></div>
-                <div id="btn-game">START</div>
+                <div id="btn-back-char" class="btn"></div>
+                <div id="btn-buy-char" class="btn">BUY</div>
+                <div id="btn-forw-char" class="btn"></div>
+                <div id="btn-back-loc" class="btn"></div>
+                <div id="btn-loc" class="btn">RUIN</div>
+                <div id="btn-forw-loc" class="btn"></div>
+                <div id="btn-game" class="btn">START</div>
             </div>
             <div id="char-skills">
                 <div id="char-skill0" class="skill">
@@ -201,5 +201,14 @@
         </div>
     </div>
     <script src="./script/loader.js"></script>
+    <script>
+        function goReportSend() {
+            window.location.href = "./report_center_send.html";
+        }
+
+        function goReportSee() {
+            window.location.href = "./report_center_see.html";
+        }
+    </script>
 </body>
 </html>

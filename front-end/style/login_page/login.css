@@ -81,7 +81,7 @@ input:hover {
     text-align: center;
     font-size: var(--font-height/2);
     font-weight: bold;
-    cursor:pointer;
+ 
 }
 
 #confirm:hover{

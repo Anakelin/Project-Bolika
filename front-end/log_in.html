@@ -15,7 +15,7 @@
     <div id="content">
         <div id="main-box">
             <label id="title-label">Login</label>
-            <div id="confirm" onclick="checkUser()">Confirm</div>
+            <div id="confirm" onclick="goUserPage()">Confirm</div>
             <input id="username" type="text" autocomplete="off">
             <label id="username-label" for="username" class="title">Username</label>
             <input id="password" type="password">
@@ -24,14 +24,13 @@
     </div>
     <script src="./script/loader.js"></script>
     <script>
-        window.onload = function () {
-            document.getElementById('content').style.display="none";
-        }
-        function setPage() {
-            window.location.href = "./game_page.html";
+        function goUserPage() {
+            window.location.href = "./user_page.html";
         }
         function checkUser() {
-            setPage();
+            if(true) {
+                goUserPage();
+            }
         }
     </script>
 </body>

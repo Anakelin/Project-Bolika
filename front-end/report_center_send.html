@@ -13,17 +13,140 @@
     height: 100%;
     width: 100%;
     background-color: var(--blackblackgrey);
+    color: white;
+}
+
+#report {
+    height: 80%;
+    width: 90%;
+    margin-top: 15vh;
+}
+
+#text{
+    height: 46vh;
+    width: 30%;
+    transition: 350ms ease-in-out;
+    display: block;
+    margin: auto;
+    margin-top:0;
+    padding: 1vh;
+    border: 3px solid var(--blackgrey);
+    outline: none;
+    text-align:justify;
+    font-size: var(--font-height);
+    background-color: var(--blackgrey);
+    color: white;
+    resize: none;
+    overflow: hidden;
+}
+
+#text-label {
+    position: absolute;
+    width: fit-content;
+    margin-top: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+    font-size: var(--font-height);
+    font-weight: bolder;
+}
+#btn-confirm {
+    position: absolute;
+    bottom: 20%;
+    right: 15%;
+    width: auto;
+    height: var(--font-height/2);
+    background-color: var(--blackgrey);
+    transition: 100ms ease-in-out;
+    color: transparent;
+    padding: 2vh;
+    text-align: center;
+    font-size: var(--font-height/2);
+    font-weight: bold;
+}
+
+#btn-return {
+    position: absolute;
+    bottom: 30%;
+    right: 15%;
+    width: auto;
+    height: var(--font-height/2);
+    background-color: var(--blackgrey);
+    transition: 100ms ease-in-out;
+    color: transparent;
+    padding: 2vh;
+    text-align: center;
+    font-size: var(--font-height/2);
+    font-weight: bold;
+}
+
+#btn-return:hover{
+    background-color: var(--blackblackgrey);
+    color: white;
+}
+
+#btn-return:hover ~ #text {
     color: var(--blackgrey);
 }
 
+#btn-confirm:hover{
+    background-color: var(--playerselect);
+    color: white;
+}
+
+#btn-confirm:hover ~ #text {
+    background-color: var(--playerselect);
+}
+
+#report-popup {
+    position: absolute;
+    left:0;
+    right:0;
+    top: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 9;
+    width: fit-content;
+    font-size: var(--font-height);
+    font-weight: bolder;   
+    display: none;
+    
+}
     </style>
 </head>
 <body>
     <div id="loader-back">
         <div id="loader"></div>
     </div>
-    <div id="content">        
+    <div id="content">
+        <div id="report-popup">Message sent correctly !</div>
+        <form id="report">
+            <div id="btn-return" class="btn" onclick="goUserPage()">Go back</div>
+            <div id="btn-confirm" class="btn" onclick="sendReport()">Confirm</div>
+            <textarea id="text" maxlength="168"></textarea>
+            <label id="text-label">Report</label>
+        </form>
     </div>
     <script src="./script/loader.js"></script>
+    <script>
+        function goUserPage() {
+            window.location.href = "./user_page.html";
+        }
+
+        function sendReport() {
+            var report = document.getElementById("report");
+            var popup = document.getElementById("report-popup");
+            popup.style = "display: block";
+            report.style = "display: none";
+            setTimeout(function(){
+                window.location.href = "./user_page.html";
+            },1000);
+            
+        }
+    </script>
 </body>
 </html>
