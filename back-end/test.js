@@ -1,4 +1,4 @@
-// .\back-end\dependencies\node\npm start --prefix .\back-end
+// .\back-end\dependencies\npm start --prefix .\back-end
 
 var msg = "Death";
 console.log(msg);
