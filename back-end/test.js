@@ -1,8 +1,8 @@
-// .\dependencies\node-v20.11.1-win-x64\npm init
-// .\\dependencies\\node-v20.11.1-win-x64\\node back-end/test.js
+// .\back-end\dependencies\node\npm start --prefix .\back-end
+
 var msg = "Death";
 console.log(msg);
-
+/*
 const express = require('express');
 const app = express();
 const http = require('http');
@@ -13,3 +13,4 @@ app.get('/', (req, res) => {
 });
 
 app.use(express.static('public'));
+*/

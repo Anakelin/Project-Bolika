@@ -1,0 +1,11 @@
+{
+  "name": "bolika-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test.js",
+  "scripts": {
+    "start": ".\\dependencies\\node\\node .\\test.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
