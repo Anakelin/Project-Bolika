@@ -1,5 +1,28 @@
 // .\back-end\dependencies\node\npm start --prefix .\back-end
 
+//BACK-END
+
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "admin",
+  password: "",
+  database: 'testdata'
+});
+
+con.connect(function(err) {
+  if (err) 
+  {
+    console.log("Error");
+  } else{
+    console.log("Connected!");
+  }
+  
+});
+
+//FRONT-END
+
 const express = require('express');
 const app = express();
 const http = require('http');
