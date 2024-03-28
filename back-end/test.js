@@ -1,26 +1,64 @@
 // .\back-end\dependencies\node\npm start --prefix .\back-end
 
 //BACK-END
+
+const sqlite3 = require('sqlite3').verbose();
+var isOn = false;
+const databaseLocation = './data/test.db';
 /*
-var mysql = require('mysql');
-
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "admin",
-  password: "",
-  database: 'testdata'
-});
-
-con.connect(function(err) {
-  if (err) 
-  {
-    console.log("Error");
+let db = new sqlite3.Database(databaseLocation,(err) => {
+  if (err) {
+    console.error(err.message);
   } else{
-    console.log("Connected!");
+    console.log('Created database.');
   }
-  
 });
 */
+let db = new sqlite3.Database(databaseLocation, sqlite3.OPEN_READWRITE, (err) => {
+  if (err) {
+    console.error(err.message);
+  } else{
+    console.log('Connected to the database.');
+    isOn = true;
+  }
+});
+
+//test write
+/*
+db.serialize(() => {
+  db.run("CREATE TABLE lorem (info TEXT)");
+
+  const stmt = db.prepare("INSERT INTO lorem VALUES (?)");
+  for (let i = 0; i < 10; i++) {
+      stmt.run("Ipsum " + i);
+  }
+  stmt.finalize();
+});
+*/
+//test read
+/*
+let sql = `SELECT * FROM lorem`;
+
+db.all(sql, [], (err, rows) => {
+  if (err) {
+    throw err;
+  }
+  rows.forEach((row) => {
+    console.log(row.name);
+  });
+});
+*/
+// open the database
+
+db.all("SELECT info FROM lorem", function(err, rows) {  
+  rows.forEach(function (row) {  
+      console.log(row);    
+  })  
+});
+
+// close the database connection
+db.close();
+
 //FRONT-END
 
 const express = require('express');
