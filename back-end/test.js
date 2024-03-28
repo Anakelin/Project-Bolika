@@ -1,7 +1,7 @@
 // .\back-end\dependencies\node\npm start --prefix .\back-end
 
 //BACK-END
-
+/*
 var mysql = require('mysql');
 
 var con = mysql.createConnection({
@@ -20,7 +20,7 @@ con.connect(function(err) {
   }
   
 });
-
+*/
 //FRONT-END
 
 const express = require('express');
