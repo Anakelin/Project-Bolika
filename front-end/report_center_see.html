@@ -5,25 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report Center</title>
     <link rel="stylesheet" href="./style/general.css">
+    <link rel="stylesheet" href="./style/report_center/report_center_see.css">
     <link rel="icon" href="./resources/game_page/pageres/page_icon.png">
-    <style>
-        html,body {
-    margin: 5vh;
-    overflow: hidden;
-    height: 100%;
-    width: 100%;
-    background-color: var(--blackblackgrey);
-    color: var(--blackgrey);
-}
-
-    </style>
 </head>
 <body>
     <div id="loader-back">
         <div id="loader"></div>
     </div>
     <div id="content">        
+        <div id="request-list">
+        </div>
+        <div id="btn-return" class="btn" onclick="goUserPage()">Go Back</div>
+        <div id="btn-clean" class="btn" onclick="cleanRequest()">Clean</div>
     </div>
     <script src="./script/loader.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./script/socket/playerCount.js"></script>
+    <script src="./script/socket/report_center_see.js"></script>
+    <script>
+        function goUserPage() {
+            pageChange("./user_page.html");
+        }
+
+        function cleanRequest() {
+            // remove divs
+            // remove from database.
+        }
+    </script>
 </body>
 </html>

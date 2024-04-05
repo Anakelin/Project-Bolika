@@ -201,17 +201,19 @@
         </div>
     </div>
     <script src="./script/loader.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./script/socket/playerCount.js"></script>
     <script>
         function goReportSend() {
-            window.location.href = "./report_center_send.html";
+            pageChange("./report_center_send.html");
         }
 
         function goReportSee() {
-            window.location.href = "./report_center_see.html";
+            pageChange("./report_center_see.html");
         }
 
         function goGame() {
-            window.location.href = "./game_page.html";
+            pageChange("./game_page.html");
         }
 
         function startGame() {
