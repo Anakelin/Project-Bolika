@@ -62,3 +62,23 @@
     background-color: var(--blackblackgrey);
     color: white;
 }
+
+#btn-clean {
+    position: absolute;
+    bottom: 20%;
+    right: 5%;
+    width: auto;
+    height: var(--font-height/2);
+    background-color: var(--blackgrey);
+    transition: 100ms ease-in-out;
+    color: transparent;
+    padding: 2vh;
+    text-align: center;
+    font-size: var(--font-height/2);
+    font-weight: bold;
+}
+
+#btn-clean:hover{
+    background-color: var(--solved);
+    color: white;
+}

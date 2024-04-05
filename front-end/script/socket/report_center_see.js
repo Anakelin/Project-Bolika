@@ -52,5 +52,10 @@ socket.on('receiveReport', (query) => {
         list.appendChild(request);
         console.log(record.id, record.hero, record.state);
     })  
-})
+});
 
+socket.on('deleteSolvedResponse', () => {
+    setTimeout(function(){
+        pageChange("./report_center_see.html");
+    },500);
+});

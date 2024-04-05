@@ -16,7 +16,7 @@
         <div id="request-list">
         </div>
         <div id="btn-return" class="btn" onclick="goUserPage()">Go Back</div>
-        <div id="btn-clean" class="btn" onclick="cleanRequest()">Clean</div>
+        <div id="btn-clean" class="btn" onclick="cleanRequest()">Clean Requests</div>
     </div>
     <script src="./script/loader.js"></script>
     <script src="/socket.io/socket.io.js"></script>
@@ -28,8 +28,12 @@
         }
 
         function cleanRequest() {
-            // remove divs
-            // remove from database.
+            let userId = 0;
+            let resolved = document.getElementsByClassName("solved");
+            if(resolved != null) {
+                socket.emit("deleteSolved", userId);
+            }
+            
         }
     </script>
 </body>

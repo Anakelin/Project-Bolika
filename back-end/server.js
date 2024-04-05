@@ -27,9 +27,9 @@ let db = new sqlite3.Database(databaseLocation, sqlite3.OPEN_READWRITE, (err) =>
 //test write
 
 db.serialize(() => {
-  db.run("CREATE TABLE IF NOT EXISTS Request (id INT UNIQUE, userId INT, hero INT, purchaseDate TEXT, state TEXT)");
+  db.run(`CREATE TABLE IF NOT EXISTS Request (id INT UNIQUE, userId INT, hero INT, purchaseDate TEXT, state TEXT)`);
 
-  const stmt = db.prepare("INSERT OR IGNORE INTO Request VALUES (?, ?, ?, ?, ?)");
+  const stmt = db.prepare(`INSERT OR IGNORE INTO Request VALUES (?, ?, ?, ?, ?)`);
   for (let i = 0; i < 6; i++) {
       const date = new Date().toISOString().split('T')[0];
       let userId = i < 3 ? 0 : 1;
@@ -108,9 +108,16 @@ io.on('connection', (socket) => {
   });
 
   socket.on('requestReport', () => {
-    db.all("SELECT id, hero, state FROM Request WHERE userId = 0", function(err, query) {  
+    db.all(`SELECT id, hero, state FROM Request WHERE userId = 0`, function(err, query) {  
       socket.emit('receiveReport', query);
     });
+  })
+
+  socket.on('deleteSolved', (userId) => {
+    db.all(`DELETE FROM Request WHERE userId = ${userId} AND state = "Solved"`, function(err, query) {  
+      socket.emit('deleteSolvedResponse');
+    });
+    
   })
 });
 
