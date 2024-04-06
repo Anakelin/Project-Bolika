@@ -22,25 +22,8 @@
     margin-top: 15vh;
 }
 
-#text{
-    height: 46vh;
-    width: 30%;
-    transition: 350ms ease-in-out;
-    display: block;
-    margin: auto;
-    margin-top:0;
-    padding: 1vh;
-    border: 3px solid var(--blackgrey);
-    outline: none;
-    text-align:justify;
-    font-size: var(--font-height);
-    background-color: var(--blackgrey);
-    color: white;
-    resize: none;
-    overflow: hidden;
-}
 
-#text-label {
+#report-title {
     position: absolute;
     width: fit-content;
     margin-top: 5vh;
@@ -116,6 +99,117 @@
     display: none;
     
 }
+
+    #report-info > div{
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    #btn-send-report, #btn-see-report{
+        text-align: center;
+        background-color: var(--playercell);
+    }
+    #btn-see-report {
+        float: right;
+        margin-right: 5%;   
+    }
+
+    #char-info{
+        position: absolute;
+        top: 10%;
+        left: 5%;
+        width: 40%;
+        height: 85%;
+        display: inline-block;
+        border: 3px solid var(--blackgrey);
+        font-size: var(--font-height/2);
+    }
+
+    .skill {
+        height: 40%;
+        width: 100%;
+        display: block;
+        margin-top: 1vh;
+        
+    }
+    .skill > div{
+        display: inline-block;
+        vertical-align: middle;
+    }
+    #char-img {
+        width: 116px;
+        height: 206px;
+        background-image: url("resources/game_page/char/default/base.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-right: 3px solid var(--blackgrey);
+    }
+    #char-buttons {
+        width: auto;
+        height: auto;
+        border-top:  3px solid var(--blackgrey);
+    }
+    #char-buttons > div {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    #btn-back-char, #btn-back-loc{
+        width: 0;
+        height: 0;
+        border-top: 2vh solid transparent;
+        border-right: 4vh solid var(--playercell);
+        border-bottom: 2vh solid transparent;
+    }
+
+    #btn-buy-char, #btn-loc, #btn-game{
+        height: 4vh;
+        width: 8vh;
+        text-align: center;
+        background-color: var(--playercell);
+    }
+
+    #btn-forw-char, #btn-forw-loc {
+        width: 0;
+        height: 0;
+        border-top: 2vh solid transparent;
+        border-left: 4vh solid var(--playercell);
+        border-bottom: 2vh solid transparent;
+    }
+
+    #btn-back-loc{
+        padding-left: 20%;
+    }
+    #btn-game {
+        float: right;
+    }
+    #char-skills {
+        width: auto;
+        height: auto;
+        border-top:  3px solid var(--blackgrey);    
+        padding-top: 3vh;
+    }
+    .icon {
+        display: inline-block;
+        height: 10vh;
+        aspect-ratio: 1;
+        background-position: center;
+        background-size: cover;
+        margin-left: 2vw;
+    }
+    #char-skill0-icon {
+        background-image: url("resources/game_page/char/default/skills/icon_smite.png");
+    }
+    #char-skill1-icon {
+        background-image: url("resources/game_page/char/default/skills/icon_rally_cry.png");
+    }
+    #char-skill2-icon {
+        background-image: url("resources/game_page/char/default/skills/icon_holy_lance.png");
+    }
+    #char-skill3-icon {
+        background-image: url("resources/game_page/char/default/skills/icon_heal_words.png");
+    }
     </style>
 </head>
 <body>
@@ -126,9 +220,43 @@
         <div id="report-popup">Message sent correctly !</div>
         <form id="report">
             <div id="btn-return" class="btn" onclick="goUserPage()">Go back</div>
-            <div id="btn-confirm" class="btn" onclick="sendReport()">Confirm</div>
-            <textarea id="text" maxlength="168"></textarea>
-            <label id="text-label">Report</label>
+            <div id="btn-confirm" class="btn" onclick="sendReport()">Request Reimbursement</div>
+            <div id="char-info">
+                <div id="char-img"></div>
+                <div id="char-desc"></div>
+                <div id="char-buttons">
+                    <div id="btn-back-char" class="btn"></div>
+                    <div id="btn-buy-char" class="btn">BUY</div>
+                    <div id="btn-forw-char" class="btn"></div>
+                    <div id="btn-back-loc" class="btn"></div>
+                    <div id="btn-loc" class="btn">RUIN</div>
+                    <div id="btn-forw-loc" class="btn"></div>
+                    <div id="btn-game" class="btn" onclick="startGame()">START</div>
+                </div>
+                <div id="char-skills">
+                    <div id="char-skill0" class="skill">
+                        <div id="char-skill0-icon" class="icon"></div>
+                        <div id="char-skill0-values" class="values">20 Hp 10 En</div>
+                        <div id="char-skill0-desc" class="desc">desc</div>
+                    </div>
+                    <div id="char-skill1" class="skill">
+                        <div id="char-skill1-icon" class="icon"></div>
+                        <div id="char-skill1-values" class="values">20 Hp 10 En</div>
+                        <div id="char-skill1-desc" class="desc">desc</div>
+                    </div>
+                    <div id="char-skill2" class="skill">
+                        <div id="char-skill2-icon" class="icon"></div>
+                        <div id="char-skill2-values" class="values">20 Hp 10 En</div>
+                        <div id="char-skill2-desc" class="desc">desc</div>
+                    </div>
+                    <div id="char-skill3" class="skill">
+                        <div id="char-skill3-icon" class="icon"></div>
+                        <div id="char-skill3-values" class="values">20 Hp 10 En</div>
+                        <div id="char-skill3-desc" class="desc">desc</div>
+                    </div>
+                </div>
+            </div>
+            <label id="report-title">Request</label>
         </form>
     </div>
     <script src="./script/loader.js"></script>
@@ -145,7 +273,7 @@
             popup.style = "display: block";
             report.style = "display: none";
             setTimeout(function(){
-                window.location.href = "./user_page.html";
+                pageChange("./user_page.html");
             },1000);
             
         }

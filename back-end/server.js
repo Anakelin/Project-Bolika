@@ -122,5 +122,5 @@ io.on('connection', (socket) => {
 });
 
 server.listen(port, () => {
-    console.log('Server Started.\nYou can now enter the site through http://localhost:'+port+'/report_center_see.html');
+    console.log('Server Started.\nYou can now enter the site through http://localhost:'+port);
 });
