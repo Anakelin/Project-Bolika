@@ -17,13 +17,7 @@ function createMap() {
     map.setAttribute("style",style);
     var user = getDiv(startPos[0]+"-"+startPos[1]);
     showMove(user.id);
-    user.classList.remove(moveClass)
-    user.classList.add(userClass);
-    //temp 
-    /*
-    getDiv("combat-content").classList.add("flip");
-    */
-    
+    user.classList.add(userClass);    
 }
 
 function removeClass(className) {
@@ -31,40 +25,6 @@ function removeClass(className) {
     elements.forEach(element => {
         element.classList.remove(userClass);
     });
-}
-
-function checkTyles (id) {
-    var pos = id.split("-").map(Number);
-    var adiacentCells = [];
-    var index = 0;
-    var nord = pos[0] - 1;
-    if(nord < size && nord > -1) {
-        adiacentCells[index] = nord+"-"+pos[1];
-        index++;
-    }
-
-    var sud = pos[0] + 1;
-    if(sud < size && sud > -1) {
-        adiacentCells[index] = sud + "-" + pos[1];
-        index++;
-    }
-
-    var east = pos[1] + 1;
-    if(east < size && east > -1) {
-        adiacentCells[index] = pos[0] + "-" + east;
-        index++;
-    }
-
-    var ovest = pos[1] - 1;
-    if(ovest < size && ovest > -1) {
-        adiacentCells[index] = pos[0] + "-" + ovest;
-        index++;
-    }
-    var isConnected = false;
-    adiacentCells.forEach(element => {
-        isConnected = document.getElementById(element).classList.contains("move-cell") ? true : isConnected;
-    });
-    return isConnected;
 }
 
 function showMove(id) {
@@ -75,103 +35,10 @@ function showMove(id) {
     elements.forEach(element => {
         element.classList.remove(moveClass);
     });
-    
-    let east = pos[1] + move;
-    let ovest = pos[1] -move;
 
-    // up-left
-    for (let i = 0; i < move+1; i++) {
-        let xLimit = pos[0] - i;
-        let yLimit = east - i;
-        let yStart = pos[1];
-
-        for (let x = pos[0]; x >= xLimit; x--) {
-            let isStopped = false;
-            for (let y = yStart; y <= yLimit; y++) {
-                if(x < size && y < size && x > -1 && y > -1) {
-                    if(!getDiv(x+"-"+y).classList.contains("wall")) {
-                        var isValidTyle = checkTyles(x + "-" + y);
-                        if(!isStopped || isValidTyle) {
-                            getDiv(x+"-"+y).classList.add(moveClass);        
-                        }       
-                    }
-                    else{
-                        isStopped = true;
-                    }
-                }
-            }
-        }
-    }
-    // up-right
-    for (let i = 0; i < move+1; i++) {
-        let xLimit = pos[0] - i;
-        let yLimit = ovest + i;
-        let yStart = pos[1];
-
-        for (let x = pos[0]; x >= xLimit; x--) {
-            let isStopped = false;
-            for (let y = yStart; y >= yLimit; y--) {
-                if(x < size && y < size && x > -1 && y > -1) {
-                    if(!getDiv(x+"-"+y).classList.contains("wall")) {
-                        var isValidTyle = checkTyles(x + "-" + y);
-                        if(!isStopped || isValidTyle) {
-                            getDiv(x+"-"+y).classList.add(moveClass);        
-                        }
-                    }
-                    else{
-                        isStopped = true;
-                    }
-                }
-            }
-        }
-    }
-
-    // down-left
-    for (let i = 0; i < move+1; i++) {
-        let xLimit = pos[0] + i;
-        let yLimit = east - i;
-        let yStart = pos[1];
-
-        for (let x = pos[0]; x <= xLimit; x++) {
-            let isStopped = false;
-            for (let y = yStart; y <= yLimit; y++) {
-                if(x < size && y < size && x > -1 && y > -1) {
-                    if(!getDiv(x + "-" + y).classList.contains("wall")) {
-                        var isValidTyle = checkTyles(x + "-" + y);
-                        if(!isStopped || isValidTyle) {
-                            getDiv(x+"-"+y).classList.add(moveClass);        
-                        }
-                    }
-                    else{
-                        isStopped = true;
-                    }
-                }
-            }
-        }
-    }
-    // down-right
-    for (let i = 0; i < move+1; i++) {
-        let xLimit = pos[0] + i;
-        let yLimit = ovest + i;
-        let yStart = pos[1];
-
-        for (let x = pos[0]; x <= xLimit; x++) {
-            let isStopped = false;
-            for (let y = yStart; y >= yLimit; y--) {
-                if(x < size && y < size && x > -1 && y > -1) {
-                    if(!getDiv(x+"-"+y).classList.contains("wall")) {
-                        var isValidTyle = checkTyles(x + "-" + y);
-                        if(!isStopped || isValidTyle) {
-                            getDiv(x+"-"+y).classList.add(moveClass);        
-                        }
-                    }
-                    else{
-                        isStopped = true;
-                    }
-                }
-            }
-        }
-    }
+    const row = pos[0];
+    const col = pos[1];
+    buildMove(row,col);
 }
 
 function addCell(size, i ,j,type) {
@@ -183,7 +50,7 @@ function addCell(size, i ,j,type) {
     default_div.id = i+"-"+j;
     
     default_div.addEventListener("mouseover", function() {
-        if(!default_div.classList.contains("user-cell") && !default_div.classList.contains("wall")) {
+        if(!default_div.classList.contains(userClass) && !default_div.classList.contains("wall")) {
             default_div.classList.add("highlight-cell");    
         }
     })
@@ -197,9 +64,12 @@ function addCell(size, i ,j,type) {
             elements.forEach(element => {
                 element.classList.remove(userClass);
             });
+            
             showMove(default_div.id);
+            
             default_div.classList.remove(moveClass);
             default_div.classList.add(userClass);
+
             if(default_div.classList.contains("hall")) {
                 setHallBackground();
             } else if (default_div.classList.contains("spawn")) {
