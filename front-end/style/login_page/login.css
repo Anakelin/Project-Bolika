@@ -28,7 +28,7 @@ input {
 }
 
 /* When the input field gets focus, change its width to 100% */
-input:hover {
+input#btn-confirm {
     width: 40%;
     border-bottom: 2px solid var(--blackgrey);
 }
@@ -48,12 +48,13 @@ input:hover {
 }
 #username-label, #password-label {
     position: relative;
-    top: -22vh;
+    font-size: var(--font-height-normal);
+    top: -20vh;
     transition: 400ms ease-in-out;
 }
 
 #username:focus + #username-label, #password:focus + #password-label{
-    top: -30vh;
+    top: -25vh;
     color: var(--playerselect);
 }
 
@@ -68,15 +69,15 @@ input:hover {
     font-weight: bold;
     font-size: var(--font-height);
 }
-#confirm {
+#btn-confirm {
     position: absolute;
     bottom: 20%;
     right: 15%;
     width: auto;
     height: var(--font-height/2);
-    background-color: var(--blackgrey);
+    background-color: var(--blackblackgrey);
     transition: 100ms ease-in-out;
-    color: transparent;
+    color: var(--blackgrey);
     padding: 2vh;
     text-align: center;
     font-size: var(--font-height/2);
@@ -84,16 +85,36 @@ input:hover {
  
 }
 
-#confirm:hover{
+#btn-sign-in {
+    position: absolute;
+    bottom: 30%;
+    right: 15%;
+    width: auto;
+    height: var(--font-height/2);
+    background-color: var(--blackgrey);
+    transition: 100ms ease-in-out;
+    color: var(--blackblackgrey);
+    padding: 2vh;
+    text-align: center;
+    font-size: var(--font-height/2);
+    font-weight: bold;
+ 
+}
+
+#btn-sign-in:hover{
+    color: white;
+}
+
+#btn-confirm:hover{
     background-color: var(--playerselect);
     color: white;
 }
 
-#confirm:hover ~ #username-label, #confirm:hover ~ #password-label{
+#btn-confirm:hover ~ #username-label, #btn-confirm:hover ~ #password-label{
     top: -60%;
     color: var(--playerselect);
 }
-#confirm:hover ~ #username, #confirm:hover ~ #password {
+#btn-confirm:hover ~ #username, #btn-confirm:hover ~ #password {
     width: 45%;
     border-bottom: 2px solid var(--playerselect);
 }

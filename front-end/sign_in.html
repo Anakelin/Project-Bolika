@@ -13,7 +13,7 @@
     height: 100%;
     width: 100%;
     background-color: var(--blackblackgrey);
-    color: var(--blackgrey);
+    color: white;
 }
 
 #main-box {
@@ -58,12 +58,16 @@ input:hover {
 }
 #username-label, #password-label, #email-label {
     position: relative;
-    top: -22vh;
+    top: -20vh;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    font-size: var(--font-height-normal);
     transition: 400ms ease-in-out;
 }
 
 #username:focus + #username-label, #password:focus + #password-label, #email:focus + #email-label{
-    top: -30vh;
+    top: -25vh;
     color: var(--playerselect);
 }
 
@@ -98,6 +102,26 @@ input:hover {
     color: white;
 }
 
+#btn-log-in {
+    position: absolute;
+    bottom: 30%;
+    right: 15%;
+    width: auto;
+    height: var(--font-height/2);
+    background-color: var(--blackgrey);
+    transition: 100ms ease-in-out;
+    color: var(--blackblackgrey);
+    padding: 2vh;
+    text-align: center;
+    font-size: var(--font-height/2);
+    font-weight: bold;
+ 
+}
+
+#btn-log-in:hover{
+    color: white;
+}
+
 #btn-confirm:hover ~ #username-label,
 #btn-confirm:hover ~ #password-label,
 #btn-confirm:hover ~ #email-label {
@@ -119,6 +143,7 @@ input:hover {
     <div id="content">
         <div id="main-box">
             <label id="title-label">Sign In</label>
+            <div id="btn-log-in" class="btn" onclick="goLogIn()">Log In</div>
             <div id="btn-confirm" class="btn" onclick="checkUser()">Confirm</div>
             <input id="username" type="text" autocomplete="off">
             <label id="username-label" for="username" class="title">Username</label>
@@ -134,6 +159,10 @@ input:hover {
     <script>
         function goUserPage() {
             pageChange("./user_page.html");
+        }
+
+        function goLogIn(){
+            pageChange("./log_in.html")
         }
         function checkUser() {
             if(true) {

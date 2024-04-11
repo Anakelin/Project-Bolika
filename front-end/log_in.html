@@ -15,7 +15,8 @@
     <div id="content">
         <div id="main-box">
             <label id="title-label">Login</label>
-            <div id="confirm" onclick="goUserPage()">Confirm</div>
+            <div id="btn-sign-in" class="btn" onclick="goSignIn()">Sign in</div>
+            <div id="btn-confirm" class="btn" onclick="goUserPage()">Confirm</div>
             <input id="username" type="text" autocomplete="off">
             <label id="username-label" for="username" class="title">Username</label>
             <input id="password" type="password">
@@ -28,6 +29,10 @@
     <script>
         function goUserPage() {
             pageChange("./user_page.html");
+        }
+
+        function goSignIn(){
+            pageChange("./sign_in.html");
         }
         function checkUser() {
             if(true) {

@@ -122,5 +122,6 @@ io.on('connection', (socket) => {
 });
 
 server.listen(port, () => {
-    console.log('Server Started.\nYou can now enter the site through http://localhost:'+port+'/game_page.html');
+    let page = '/'+'log_in.html';
+    console.log('Server Started.\nYou can now enter the site through http://localhost:'+port+page);
 });

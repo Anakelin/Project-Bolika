@@ -8,6 +8,7 @@
     --walkable: #6c3e3e;
     --radius: 1vh;
     --font-height:5vh;
+    --font-height-normal: 4vh;
 }
 
 html,body {
