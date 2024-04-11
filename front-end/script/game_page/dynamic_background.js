@@ -3,13 +3,16 @@ var background = getDiv(combatViewClass);
 var backgroundLocation = "./resources/game_page/back/swamp";
 
 function setMainBackground() {
-    background.style.backgroundImage = 'url('+backgroundLocation+'_main.png)';    
+    let url = 'url('+backgroundLocation+'_main.png)';
+        background.style.backgroundImage = url;    
 }
 
 function setHallBackground() {
-    background.style.backgroundImage = 'url('+backgroundLocation+'_hall.png)';    
+    let url = 'url('+backgroundLocation+'_hall.png)';
+    background.style.backgroundImage = url;    
 }
 
 function setSpawnBackground() {
-    background.style.backgroundImage = 'url('+backgroundLocation+'_spawn.png)';    
+    let url ='url('+backgroundLocation+'_spawn.png)';    
+        background.style.backgroundImage = url;    
 }
