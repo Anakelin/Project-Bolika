@@ -1,3 +1,16 @@
+:root {
+    --hall: #3d2525;
+    --hall-highlight: #6c3e3e;
+    --room: #301d1d;
+    --room-highlight: #4d2525;
+    --spawn: #933030;
+    --spawn-highlight: #af4040;
+    --bonfire: #943320;
+    --bonfire-highlight: #9f2416;
+    --treasure: #945620;
+    --treasure-highlight: #9f5616;
+}
+
 #board-box {
     height: 30vw;
     width: 30vw;
@@ -30,7 +43,7 @@
     gap: 0;
 }
 #map > div {
-    border: 1px solid var(--blackgrey);
+    border: 0.5vw solid var(--blackgrey);
     transition: 300ms ease-out;
 }
 
@@ -42,18 +55,58 @@
     background-color: var(--floor);
 }
 
-.user-cell {
-    background-color: var(--playercell);
-}
-
 .highlight-cell {
     background-color: var(--whitegrey);
 }
 
-.move-cell {
+.move-cell{
     background-color: var(--walkable);
+}
+
+.hall {
+    background-color: var(--hall);
+}
+
+.move-cell.hall {
+    background-color: var(--hall-highlight);
+}
+
+.room {
+    background-color: var(--room);
+}
+
+.move-cell.room {
+    background-color: var(--room-highlight);
+}
+
+.spawn {
+    background-color: var(--spawn);
+}
+
+.move-cell.spawn {
+    background-color: var(--spawn-highlight);
+}
+
+.bonfire {
+    background-color: var(--bonfire);
+}
+
+.move-cell.bonfire {
+    background-color: var(--bonfire-highlight);
+}
+
+.treasure {
+    background-color: var(--treasure);
+}
+
+.move-cell.treasure {
+    background-color: var(--treasure-highlight);
 }
 
 .move-cell:hover {
     background-color: var(--playerselect);
+}
+
+.user-cell {
+    background-color: var(--playercell);
 }

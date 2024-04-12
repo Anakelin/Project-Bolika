@@ -57,21 +57,28 @@ function addCell(size, i ,j,type) {
     default_div.addEventListener("mouseout", function() {
         default_div.classList.remove("highlight-cell");
     })
+
     default_div.addEventListener("click", function() {
         if(default_div.classList.contains(moveClass)) {
+            //Remove previous user position
+            removeClass(userClass);
+            
+            //Remove old style
             default_div.classList.remove("highlight-cell");
-            const elements = document.querySelectorAll(`.${userClass}`);
-            elements.forEach(element => {
-                element.classList.remove(userClass);
-            });
-            
-            showMove(default_div.id);
-            
-            default_div.classList.remove(moveClass);
+            //Update userposition
             default_div.classList.add(userClass);
 
+            //Create new movement from new cell
+            showMove(default_div.id);
+            
+
+            //Check combat
             if(default_div.classList.contains("hall")) {
                 setHallBackground();
+                if(isBattle()) {
+                    //startBattleFlip();
+                }
+                
             } else if (default_div.classList.contains("spawn")) {
                 setSpawnBackground();
             } else {
@@ -89,9 +96,13 @@ function addCell(size, i ,j,type) {
         default_div.classList.add("wall");
     } else if(type === m.Hall) {
         default_div.classList.add("hall");
-    } else {
+    } else if(type === m.Spawn){
         startPos = [i,j];
         default_div.classList.add("spawn");
+    } else if(type === m.Fire) {
+        default_div.classList.add("bonfire");
+    } else if(type === m.Loot) {
+        default_div.classList.add("treasure");
     }
     
     map.appendChild(default_div);
