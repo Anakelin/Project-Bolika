@@ -1,10 +1,19 @@
 var map = document.getElementById("map");
 var size = 10;
-var userClass = "user-cell";
-var moveClass = "move-cell";
+const userClass = "user-cell";
+const moveClass = "move-cell";
+const highlightClass = "highlight-cell";
+const enemClass = "enem";
+const spawnClass = "spawn";
+const roomClass = "room";
+const wallClass = "wall";
+const hallClass = "hall";
+const bonfireClass = "bonfire";
+const treasureClass = "treasure";
+
 
 var startPos = [0,0];
-var move = 3;
+var move = 5;
 function createMap() {
     setMainBackground();
     var style = "grid-template-columns:";
@@ -41,49 +50,68 @@ function showMove(id) {
     buildMove(row,col);
 }
 
+function isEnd() {
+    const elements = document.querySelectorAll(`.${treasureClass}`);
+    if(elements.length == 0) {
+        return true;
+    }
+    return false;
+}
+
 function addCell(size, i ,j,type) {
-    var default_div = document.createElement("div");
-    default_div.classList = "default-cell";
+    var div = document.createElement("div");
+    div.classList = "cell";
     var border = 2;
     var cellSize = Math.floor(map.offsetHeight / size)-border;
-    default_div.setAttribute("style","width:"+cellSize+"px;height:"+cellSize+"px");
-    default_div.id = i+"-"+j;
+    div.setAttribute("style","width:"+cellSize+"px;height:"+cellSize+"px");
+    div.id = i+"-"+j;
     
-    default_div.addEventListener("mouseover", function() {
-        if(!default_div.classList.contains(userClass) && !default_div.classList.contains("wall")) {
-            default_div.classList.add("highlight-cell");    
+    div.addEventListener("mouseover", function() {
+        if(!div.classList.contains(userClass) && !div.classList.contains(wallClass)) {
+            div.classList.add(highlightClass);    
         }
     })
-    default_div.addEventListener("mouseout", function() {
-        default_div.classList.remove("highlight-cell");
+    div.addEventListener("mouseout", function() {
+        div.classList.remove(highlightClass);
     })
 
-    default_div.addEventListener("click", function() {
-        if(default_div.classList.contains(moveClass)) {
+    div.addEventListener("click", function() {
+        if(div.classList.contains(moveClass)) {
             //Remove previous user position
             removeClass(userClass);
             
             //Remove old style
-            default_div.classList.remove("highlight-cell");
+            div.classList.remove(highlightClass);
             //Update userposition
-            default_div.classList.add(userClass);
+            div.classList.add(userClass);
 
             //Create new movement from new cell
-            showMove(default_div.id);
+            showMove(div.id);
             
 
             //Check combat
-            if(default_div.classList.contains("hall")) {
+            if(div.classList.contains(hallClass)) {
                 setHallBackground();
                 if(isBattle()) {
                     //startBattleFlip();
                 }
                 
-            } else if (default_div.classList.contains("spawn")) {
+            } else if (div.classList.contains(spawnClass)) {
                 setSpawnBackground();
-            } else {
+            } else if(div.classList.contains(enemClass)){
                 setMainBackground();
-                //startBattleFlip();
+                startBattleFlip();
+                div.classList.remove(enemClass);
+                div.classList.add(roomClass);
+            } else if(div.classList.contains(treasureClass)){
+                div.classList.remove(treasureClass);
+                div.classList.add(roomClass);
+                //check if game as ended
+                if(isEnd()) {
+                    console.log(exit);
+                    //save data to account
+                    //pageChange("./user_page.html");
+                }
             }
             
         }
@@ -91,19 +119,21 @@ function addCell(size, i ,j,type) {
     })
     
     if(type === m.Room) {
-        default_div.classList.add("room");
+        div.classList.add(roomClass);
     } else if(type === m.Wall) {
-        default_div.classList.add("wall");
+        div.classList.add(wallClass);
     } else if(type === m.Hall) {
-        default_div.classList.add("hall");
+        div.classList.add(hallClass);
     } else if(type === m.Spawn){
         startPos = [i,j];
-        default_div.classList.add("spawn");
+        div.classList.add(spawnClass);
     } else if(type === m.Fire) {
-        default_div.classList.add("bonfire");
+        div.classList.add(bonfireClass);
     } else if(type === m.Loot) {
-        default_div.classList.add("treasure");
+        div.classList.add(treasureClass);
+    } else if(type === m.Enem) {
+        div.classList.add(enemClass);
     }
     
-    map.appendChild(default_div);
+    map.appendChild(div);
 }

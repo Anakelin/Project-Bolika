@@ -1,14 +1,18 @@
 :root {
+    --user: #ae2c2c;
+    --user-highlight: #c83e3e;
     --hall: #3d2525;
     --hall-highlight: #6c3e3e;
     --room: #301d1d;
-    --room-highlight: #4d2525;
+    --room-highlight: #612929;
     --spawn: #933030;
     --spawn-highlight: #af4040;
     --bonfire: #943320;
     --bonfire-highlight: #9f2416;
     --treasure: #945620;
     --treasure-highlight: #9f5616;
+    --floor: #3d2525;
+    --walkable: #6c3e3e;
 }
 
 #board-box {
@@ -80,33 +84,58 @@
 }
 
 .spawn {
-    background-color: var(--spawn);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../../resources/game_page/pageres/entrance_icon.png);
+    opacity: 0.5;
 }
 
 .move-cell.spawn {
-    background-color: var(--spawn-highlight);
+    opacity: 1.0;
 }
 
 .bonfire {
-    background-color: var(--bonfire);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../../resources/game_page/pageres/temp_icon.png);
+    opacity: 0.5;
 }
 
 .move-cell.bonfire {
-    background-color: var(--bonfire-highlight);
+    opacity: 1.0;
 }
 
 .treasure {
-    background-color: var(--treasure);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../../resources/game_page/pageres/treasure_icon.png);
+    opacity: 0.5;
 }
 
 .move-cell.treasure {
-    background-color: var(--treasure-highlight);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 1.0;
+    transition: 300ms ease-out;
 }
 
 .move-cell:hover {
-    background-color: var(--playerselect);
+    background-color: var(--user-highlight);
+}
+
+.enem {
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    background-image: url(../../resources/game_page/pageres/enemy_icon.png);
+    transition: 300ms ease-out;
+}
+
+.move-cell.enem {
+    opacity: 1.0;
 }
 
 .user-cell {
-    background-color: var(--playercell);
+    background-color: var(--user);
+    background-image: none;
 }
