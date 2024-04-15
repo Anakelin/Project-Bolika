@@ -5,14 +5,9 @@
     --hall-highlight: #6c3e3e;
     --room: #301d1d;
     --room-highlight: #612929;
-    --spawn: #933030;
-    --spawn-highlight: #af4040;
-    --bonfire: #943320;
-    --bonfire-highlight: #9f2416;
-    --treasure: #945620;
-    --treasure-highlight: #9f5616;
     --floor: #3d2525;
     --walkable: #6c3e3e;
+    --wall: #0c0c0c;
 }
 
 #board-box {
@@ -31,12 +26,11 @@
     transform-style: preserve-3d;
 }
 
-#board-front {
+#board-front, #board-back {
     background-color: var(--blackblackgrey);
 }
 
 #board-back {
-    background-color: var(--blackblackgrey);
     transform: rotateX(180deg);
 }
 
@@ -46,12 +40,14 @@
     display: grid;
     gap: 0;
 }
-#map > div {
+#map > div:not(.wall){
     border: 0.5vw solid var(--blackgrey);
     transition: 300ms ease-out;
+    cursor: pointer;
 }
 
 .wall {
+    border: 0.5vw solid var(--blackblackgrey);  /* for size consistency with other cells, otherwise it can be smaller than the other cells*/
     background-color: var(--wall);
 }
 
@@ -67,6 +63,10 @@
     background-color: var(--walkable);
 }
 
+.room {
+    background-color: var(--room);
+}
+
 .hall {
     background-color: var(--hall);
 }
@@ -75,48 +75,20 @@
     background-color: var(--hall-highlight);
 }
 
-.room {
-    background-color: var(--room);
-}
-
 .move-cell.room {
     background-color: var(--room-highlight);
 }
 
 .spawn {
-    background-size: cover;
-    background-repeat: no-repeat;
     background-image: url(../../resources/game_page/pageres/entrance_icon.png);
-    opacity: 0.5;
-}
-
-.move-cell.spawn {
-    opacity: 1.0;
 }
 
 .bonfire {
-    background-size: cover;
-    background-repeat: no-repeat;
     background-image: url(../../resources/game_page/pageres/temp_icon.png);
-    opacity: 0.5;
-}
-
-.move-cell.bonfire {
-    opacity: 1.0;
 }
 
 .treasure {
-    background-size: cover;
-    background-repeat: no-repeat;
     background-image: url(../../resources/game_page/pageres/treasure_icon.png);
-    opacity: 0.5;
-}
-
-.move-cell.treasure {
-    background-size: cover;
-    background-repeat: no-repeat;
-    opacity: 1.0;
-    transition: 300ms ease-out;
 }
 
 .move-cell:hover {
@@ -124,14 +96,18 @@
 }
 
 .enem {
+    
+    background-image: url(../../resources/game_page/pageres/enemy_icon.png);
+}
+
+.treasure, .bonfire, .enem, .hall, .room, .spawn{
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.5;
-    background-image: url(../../resources/game_page/pageres/enemy_icon.png);
     transition: 300ms ease-out;
 }
 
-.move-cell.enem {
+.move-cell.treasure, .move-cell.bonfire, .move-cell.enem, .move-cell.hall, .move-cell.room, .move-cell.spawn  {
     opacity: 1.0;
 }
 

@@ -1,16 +1,5 @@
 var map = document.getElementById("map");
 var size = 10;
-const userClass = "user-cell";
-const moveClass = "move-cell";
-const highlightClass = "highlight-cell";
-const enemClass = "enem";
-const spawnClass = "spawn";
-const roomClass = "room";
-const wallClass = "wall";
-const hallClass = "hall";
-const bonfireClass = "bonfire";
-const treasureClass = "treasure";
-
 
 var startPos = [0,0];
 var move = 5;
@@ -76,7 +65,7 @@ function addCell(size, i ,j,type) {
     })
 
     div.addEventListener("click", function() {
-        if(div.classList.contains(moveClass)) {
+        if(isClassPresent(div.id, moveClass)) {
             //Remove previous user position
             removeClass(userClass);
             
@@ -90,25 +79,25 @@ function addCell(size, i ,j,type) {
             
 
             //Check combat
-            if(div.classList.contains(hallClass)) {
+            if(isClassPresent(div.id,hallClass)) {
                 setHallBackground();
                 if(isBattle()) {
                     //startBattleFlip();
                 }
                 
-            } else if (div.classList.contains(spawnClass)) {
+            } else if (isClassPresent(div.id,spawnClass)) {
                 setSpawnBackground();
-            } else if(div.classList.contains(enemClass)){
+            } else if(isClassPresent(div.id,enemClass)){
                 setMainBackground();
                 startBattleFlip();
                 div.classList.remove(enemClass);
                 div.classList.add(roomClass);
-            } else if(div.classList.contains(treasureClass)){
+            } else if(isClassPresent(div.id,treasureClass)){
                 div.classList.remove(treasureClass);
                 div.classList.add(roomClass);
                 //check if game as ended
                 if(isEnd()) {
-                    console.log(exit);
+                    console.log("exit");
                     //save data to account
                     //pageChange("./user_page.html");
                 }

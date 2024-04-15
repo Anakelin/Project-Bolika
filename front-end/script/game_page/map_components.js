@@ -43,13 +43,3 @@ var generatedMap = [
     [m.Hall,m.Wall,m.Wall,m.Room,m.Room,m.Room,m.Enem,m.Room,m.Room,m.Wall],
     [m.Hall,m.Hall,m.Hall,m.Hall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall,m.Wall],
 ];
-
-function isWall(id) {
-    var div = getDiv(id);
-    return div.classList.contains("wall");
-}
-
-function isRoom(id) {
-    var div = getDiv(id);
-    return div.classList.contains("room");
-}

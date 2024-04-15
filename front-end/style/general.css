@@ -1,8 +1,8 @@
 :root {
     --blackblackgrey: #0c0c0c;
     --blackgrey: #1c1c1c;
-    --playercell: #ae2c2c;
-    --playerselect: #c83e3e;
+    --red: #ae2c2c;
+    --red-highlight: #c83e3e;
     --whitegrey: #9b9b9b;
     --radius: 1vh;
     --font-height:5vh;
@@ -16,6 +16,7 @@ html,body {
   width: 100%;
   background-color: var(--blackblackgrey);
   color: white;
+  z-index: -3;
 }
 
 .btn {
@@ -32,7 +33,7 @@ html,body {
     margin: -76px 0 0 -76px;
     border: 16px solid var(--blackgrey);
     border-radius: 50%;
-    border-top: 16px solid var(--playerselect);
+    border-top: 16px solid var(--red-highlight);
     -webkit-animation: spin 550ms linear infinite;
     animation: spin 550ms linear infinite;
   }

@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="./style/login_page/login.css">
-    <link rel="stylesheet" href="./style/general.css">
     <link rel="icon" href="./resources/game_page/pageres/page_icon.png">
+    <link rel="stylesheet" href="./style/general.css">
+    <link rel="stylesheet" href="./style/login_page/login.css">
 </head>
 <body>
     <div id="loader-back">
@@ -22,7 +22,12 @@
             <input id="password" type="password">
             <label id="password-label" for="password" class="title">Password</label>
         </div>
+        <div id="background">
+            <div id="image-back"></div>
+            <div id="shape-back"></div>
+        </div>
     </div>
+    
     <script src="./script/loader.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="./script/socket/playerCount.js"></script>
